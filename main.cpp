@@ -2,6 +2,8 @@
 #include <windows.h>
 #include <vector>
 
+#include "offset.h"
+
 #define PROCESS_NAME "Growtopia"
 
 bool requestDebugPrivilege() {
@@ -69,5 +71,9 @@ int main() {
         std::cout << "Memory written successfully." << std::endl;
     }
 
+    Offset offset { };
+    offset.init(hProcess);
+
+    CloseHandle(hProcess);
     return 0;
 }
